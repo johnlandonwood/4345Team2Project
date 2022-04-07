@@ -1,0 +1,7 @@
+[debug] Copy resource mappings: 
+[debug] 	(/home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/conf/application.conf,/home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/target/scala-2.11/classes/application.conf)
+[debug] 	(/home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/conf/logback.xml,/home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/target/scala-2.11/classes/logback.xml)
+[debug] 	(/home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/conf/routes,/home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/target/scala-2.11/classes/routes)
+[debug] 	(/home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/conf/evolutions,/home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/target/scala-2.11/classes/evolutions)
+[debug] 	(/home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/conf/evolutions/default,/home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/target/scala-2.11/classes/evolutions/default)
+[debug] 	(/home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/conf/evolutions/default/1.sql,/home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/target/scala-2.11/classes/evolutions/default/1.sql)

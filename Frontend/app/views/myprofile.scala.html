@@ -1,0 +1,189 @@
+@(first_name: String, last_name: String, occupation: String, bio: String, phone: String, email: String)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>Play Setup Demo</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+            <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+@*        <link rel="stylesheet" type="text/css" href='@routes.Assets.at("stylesheets/main.css")'/>*@
+    </head>
+
+    <body>
+
+        <nav class="navbar">
+            <div class="container">
+                <button type="button" class="btn">Edit My Profile</button>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3>My Profile</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h4 id="first_name">@first_name</h4>
+                </div>
+                <div class="col">
+                    <h4 id="last_name">@last_name</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h6 id="occupation">
+                        @occupation
+                    </h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p id="bio">
+                        @bio
+                    </p>
+                </div>
+            </div>
+
+@*            <div class="row">*@
+@*                <div class="col">*@
+@*                    <h5>Interests</h5>*@
+@*                    <ul>*@
+@*                        <li>*@
+@*                        </li>*@
+@*                    </ul>*@
+@*                </div>*@
+@*            </div>*@
+@*            <button class="btn">Add Interest</button>*@
+
+            <div class="row">
+                <div class="col">
+                    <h5><u>Contact Info</u></h5>
+                    <p>@phone</p>
+                    <p>@email</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <h5><u>@first_name's Research History/Publications</u></h5>
+                    <table id="research_history">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Media Type</th>
+                                <th>Date</th>
+                                <th>Link</th>
+                            </tr>
+                        </thead>
+                    </table>
+
+                    <button id="addResearchButton" type="button" class="btn" onclick=addResearch()>Test add</button>
+
+@*                    <div id="addResearchModal" class="modal">*@
+@*                        <span class="exit">X</span>*@
+@*                        <p>Form will go here</p>*@
+@*                        <btn type="button" class="btn-danger" onclick=addResearch()>Close</btn>*@
+@*                    </div>*@
+
+                    <button id="modal-btn" type="button" class="btn"> Add Research History/Publication</button>
+
+                    <div class="modal">
+                        <div class="modal-content" style="">
+                            <span class="close-btn">&times;</span>
+                            <p>Enter the new research history/publication information:</p>
+                            <form id="addNewResearchForm">
+                                <div class="container">
+                                    <label for="title">Title</label>
+                                    <input type="text" id="title" name="title" placeholder="test"/>
+                                    <label for="mediaType">Media Type</label>
+                                    <input type="text" id="mediaType" name="mediaType" placeholder="test"/>
+                                    <label for="date">Date Published</label>
+                                    <input type="date" id="date" name="date" placeholder="test"/>
+                                    <label for="link">Link to content</label>
+                                    <input type="text" id="link" name="link" placeholder="test"/>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <script>
+            function addResearch() {
+                let table = document.getElementById("research_history");
+                let row = table.insertRow();
+                let title = row.insertCell(0);
+                let mediaType = row.insertCell(1);
+                let date = row.insertCell(2);
+                let link = row.insertCell(3);
+                title.innerHTML = "Test Title";
+                mediaType.innerHTML = "Article";
+                date.innerHTML = "01-01-2020";
+                link.innerHTML = "<a href=google.com>Link</a>"
+            }
+        </script>
+
+        <script>
+                let modalBtn = document.getElementById("modal-btn")
+                let modal = document.querySelector(".modal")
+                let closeBtn = document.querySelector(".close-btn")
+                modalBtn.onclick = function(){
+                    modal.style.display = "block"
+                }
+                closeBtn.onclick = function(){
+                    modal.style.display = "none"
+                }
+                // window.onclick = function(e){
+                //     if(e.target === modal){
+                //         modal.style.display = "none"
+                //     }
+                // }
+        </script>
+
+
+
+@*        <script>*@
+@*            let modal = document.getElementById("addResearchModal");*@
+@*            let btn = document.getElementById("addResearchButton");*@
+@*            let span = document.getElementsByClassName("exit");*@
+@*            btn.onclick = function() {*@
+@*                modal.style.display = "block";*@
+@*            }*@
+@*            span.onclick = function() {*@
+@*                modal.style.display = "none";*@
+@*            }*@
+@*        </script>*@
+
+
+
+        @*        Future additions:
+        - credentials section
+        - publications/research history section
+        - cleaner UI
+        - manage privacy settings
+        - apply for verification
+        - Profile dashboard
+        *@
+
+    </body>
+</html>
