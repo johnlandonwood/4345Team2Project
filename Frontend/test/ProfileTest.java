@@ -6,18 +6,6 @@ import play.twirl.api.Content;
 
 public class ProfileTest {
 
-//    @Test
-//    public void testSum() {
-//        int a = 1 + 1;
-//        assertEquals(2, a);
-//    }
-//
-//    @Test
-//    public void testString() {
-//        String str = "Hello world";
-//        assertFalse(str.isEmpty());
-//    }
-
     @Test
     public void testProfile() {
         Content html = views.html.myprofile.render(
