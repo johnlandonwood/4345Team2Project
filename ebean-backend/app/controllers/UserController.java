@@ -65,26 +65,6 @@ public class UserController extends Controller {
     }
 
 
-//    public Result updateProfile() {
-//
-//        System.out.println("In updateProfile");
-//        JsonNode req = request().body().asJson();
-//        String first_name = req.get("first_name").asText();
-//        String last_name = req.get("last_name").asText();
-//
-//        try {
-//            User user = User.findByName(username); // ( match where username and password both match )
-//            if(user!=null && username.equals(user.username) && password.equals(user.password)){
-//                return ok("true");
-//            }else{
-//                return ok("false");
-//            }
-//        }
-//        catch (Exception e) {
-//            return ok("false");
-//        }
-//
-//    }
 
 
 }

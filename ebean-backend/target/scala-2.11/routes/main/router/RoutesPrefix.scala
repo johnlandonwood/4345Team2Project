@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/conf/routes
-// @DATE:Fri Apr 01 14:14:15 CDT 2022
+// @DATE:Sat Apr 30 13:01:27 CDT 2022
 
 
 package router {

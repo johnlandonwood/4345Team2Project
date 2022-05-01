@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/ebean-backend/conf/routes
-// @DATE:Fri Apr 01 14:14:15 CDT 2022
+// @DATE:Sat Apr 30 13:01:27 CDT 2022
 
 package router
 
@@ -20,6 +20,8 @@ class Routes(
   HomeController_0: controllers.HomeController,
   // @LINE:9
   UserController_1: controllers.UserController,
+  // @LINE:15
+  PublicationController_2: controllers.PublicationController,
   val prefix: String
 ) extends GeneratedRouter {
 
@@ -28,14 +30,16 @@ class Routes(
     // @LINE:6
     HomeController_0: controllers.HomeController,
     // @LINE:9
-    UserController_1: controllers.UserController
-  ) = this(errorHandler, HomeController_0, UserController_1, "/")
+    UserController_1: controllers.UserController,
+    // @LINE:15
+    PublicationController_2: controllers.PublicationController
+  ) = this(errorHandler, HomeController_0, UserController_1, PublicationController_2, "/")
 
   import ReverseRouteContext.empty
 
   def withPrefix(prefix: String): Routes = {
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, HomeController_0, UserController_1, prefix)
+    new Routes(errorHandler, HomeController_0, UserController_1, PublicationController_2, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -46,6 +50,7 @@ class Routes(
     ("""GET""", this.prefix, """controllers.HomeController.index"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.UserController.authenticate()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """signup""", """controllers.UserController.registerNew()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addPublication""", """controllers.PublicationController.addPublication()"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -104,6 +109,23 @@ class Routes(
     )
   )
 
+  // @LINE:15
+  private[this] lazy val controllers_PublicationController_addPublication3_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addPublication")))
+  )
+  private[this] lazy val controllers_PublicationController_addPublication3_invoker = createInvoker(
+    PublicationController_2.addPublication(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.PublicationController",
+      "addPublication",
+      Nil,
+      "POST",
+      """""",
+      this.prefix + """addPublication"""
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -123,6 +145,12 @@ class Routes(
     case controllers_UserController_registerNew2_route(params) =>
       call { 
         controllers_UserController_registerNew2_invoker.call(UserController_1.registerNew())
+      }
+  
+    // @LINE:15
+    case controllers_PublicationController_addPublication3_route(params) =>
+      call { 
+        controllers_PublicationController_addPublication3_invoker.call(PublicationController_2.addPublication())
       }
   }
 }

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/Frontend/conf/routes
-// @DATE:Wed Apr 06 18:13:33 CDT 2022
+// @DATE:Sat Apr 30 14:35:59 CDT 2022
 
 package controllers;
 

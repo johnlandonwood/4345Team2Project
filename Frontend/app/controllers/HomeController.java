@@ -99,38 +99,29 @@ public class HomeController extends Controller {
     }
 
     public Result myProfile(String first_name, String last_name, String occupation, String bio, String phone, String email) {
-
         return ok(views.html.myprofile.render(first_name, last_name, occupation, bio, phone, email));
+    }
 
-
+    public CompletionStage<Result> addPublicationHandler() {
+        Form<Publication> publicationForm = formFactory.form(Publication.class).bindFromRequest();
+        if (publicationForm.hasErrors()) {
+            return (CompletionStage<Result>) badRequest(views.html.register.render(null));
+        }
+        return publicationForm.get().addPublication()
+                .thenApplyAsync((WSResponse r) -> {
+                    if (r.getStatus() == 200 && r.asJson() != null) {
+                        System.out.println("success");
+                        System.out.println(r.asJson());
+                        return ok(myprofile.render("Landon", "Wood", "CS Student", "Junior Computer Science Student at SMU.", "214-601-6524", "landonw@smu.edu"));
+                    } else {
+                        System.out.println("response null");
+                        return badRequest(views.html.myprofile.render("-", "-", "-", "-", "-", "-"));
+                    }
+                }, ec.current());
     }
 
 
-//    public Result editProfile(String first_name, String last_name) {
-//
-//        return ok(views.html.editprofile.render(first_name, last_name));
-//
-//    }
 
-//    public CompletionStage<Result> editProfileHandler() {
-//
-//        Form<User> editProfileForm = formFactory.form(User.class).bindFromRequest();
-//        if (editProfileForm.hasErrors()){
-//            return (CompletionStage<Result>) badRequest(views.html.editprofile.render(null));
-//        }
-//        return editProfileForm.get().registerUser()
-//                .thenApplyAsync((WSResponse r) -> {
-//                    if (r.getStatus() == 200 && r.asJson() != null) {
-//                        System.out.println("success");
-//                        System.out.println(r.asJson());
-//                        return ok(login.render(""));
-//                    } else {
-//                        System.out.println("response null");
-//                        return badRequest(views.html.editprofile.render("Username already exists"));
-//                    }
-//                }, ec.current());
-//
-//    }
 
 
 

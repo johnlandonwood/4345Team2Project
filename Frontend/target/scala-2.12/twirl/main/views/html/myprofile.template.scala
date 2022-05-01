@@ -53,7 +53,6 @@ Seq[Any](format.raw/*2.1*/("""
 
         <nav class="navbar">
             <div class="container">
-                <button type="button" class="btn">Edit My Profile</button>
             </div>
         </nav>
 
@@ -65,49 +64,40 @@ Seq[Any](format.raw/*2.1*/("""
             </div>
             <div class="row">
                 <div class="col">
-                    <h4 id="first_name">"""),_display_(/*37.42*/first_name),format.raw/*37.52*/("""</h4>
+                    <h4 id="first_name">"""),_display_(/*36.42*/first_name),format.raw/*36.52*/("""</h4>
                 </div>
                 <div class="col">
-                    <h4 id="last_name">"""),_display_(/*40.41*/last_name),format.raw/*40.50*/("""</h4>
+                    <h4 id="last_name">"""),_display_(/*39.41*/last_name),format.raw/*39.50*/("""</h4>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <h6 id="occupation">
-                        """),_display_(/*46.26*/occupation),format.raw/*46.36*/("""
-                    """),format.raw/*47.21*/("""</h6>
+                        """),_display_(/*45.26*/occupation),format.raw/*45.36*/("""
+                    """),format.raw/*46.21*/("""</h6>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <p id="bio">
-                        """),_display_(/*53.26*/bio),format.raw/*53.29*/("""
-                    """),format.raw/*54.21*/("""</p>
-                </div>
-            </div>
-
-"""),format.raw/*58.34*/("""
-"""),format.raw/*59.38*/("""
-"""),format.raw/*60.43*/("""
-"""),format.raw/*61.29*/("""
-"""),format.raw/*62.33*/("""
-"""),format.raw/*63.34*/("""
-"""),format.raw/*64.30*/("""
-"""),format.raw/*65.27*/("""
-"""),format.raw/*66.23*/("""
-"""),format.raw/*67.58*/("""
-
-            """),format.raw/*69.13*/("""<div class="row">
-                <div class="col">
-                    <h5><u>Contact Info</u></h5>
-                    <p>"""),_display_(/*72.25*/phone),format.raw/*72.30*/("""</p>
-                    <p>"""),_display_(/*73.25*/email),format.raw/*73.30*/("""</p>
+                        """),_display_(/*52.26*/bio),format.raw/*52.29*/("""
+                    """),format.raw/*53.21*/("""</p>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
-                    <h5><u>"""),_display_(/*79.29*/first_name),format.raw/*79.39*/("""'s Research History/Publications</u></h5>
+                    <h5><u>Contact Info</u></h5>
+                    <p>"""),_display_(/*60.25*/phone),format.raw/*60.30*/("""</p>
+                    <p>"""),_display_(/*61.25*/email),format.raw/*61.30*/("""</p>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col">
+                    <h5><u>"""),_display_(/*69.29*/first_name),format.raw/*69.39*/("""'s Publications</u></h5>
                     <table id="research_history">
                         <thead>
                             <tr>
@@ -119,97 +109,87 @@ Seq[Any](format.raw/*2.1*/("""
                         </thead>
                     </table>
 
-                    <button id="addResearchButton" type="button" class="btn" onclick=addResearch()>Test add</button>
 
-"""),format.raw/*93.66*/("""
-"""),format.raw/*94.56*/("""
-"""),format.raw/*95.53*/("""
-"""),format.raw/*96.100*/("""
-"""),format.raw/*97.31*/("""
-
-                    """),format.raw/*99.21*/("""<button id="modal-btn" type="button" class="btn"> Add Research History/Publication</button>
-
+                    <button id="addResearchButton" type="button" class="btn" onclick=testAddResearch()>Test add</button>
+                    <button id="modal-btn" type="button" class="btn"> Add Publication</button>
                     <div class="modal">
                         <div class="modal-content" style="">
                             <span class="close-btn">&times;</span>
-                            <p>Enter the new research history/publication information:</p>
-                            <form id="addNewResearchForm">
+                            <p>Enter the new publication's information:</p>
+                            <form action=""""),_display_(/*88.44*/routes/*88.50*/.HomeController.addPublicationHandler()),format.raw/*88.89*/("""" method="GET" id="addNewResearchForm" >
                                 <div class="container">
                                     <label for="title">Title</label>
-                                    <input type="text" id="title" name="title" placeholder="test"/>
-                                    <label for="mediaType">Media Type</label>
-                                    <input type="text" id="mediaType" name="mediaType" placeholder="test"/>
+                                    <input type="text" id="title" name="title" placeholder="Enter title..."/>
+                                    <label for="media_type">Media Type</label>
+                                    <input type="text" id="media_type" name="media_type" placeholder="Enter the type of media (article, video, etc.)"/>
                                     <label for="date">Date Published</label>
-                                    <input type="date" id="date" name="date" placeholder="test"/>
+                                    <input type="date" id="date" name="date" placeholder="Date published..."/>
                                     <label for="link">Link to content</label>
-                                    <input type="text" id="link" name="link" placeholder="test"/>
+                                    <input type="text" id="link" name="link" placeholder="Link to content..."/>
+                                    <input type="submit" value="Submit" id="submit-form-btn" class="btn" onclick="addPublicationFrontend()">
                                 </div>
-
                             </form>
-
                         </div>
                     </div>
-
-
-
-
-
                 </div>
             </div>
 
         </div>
 
+
         <script>
-            function addResearch() """),format.raw/*132.36*/("""{"""),format.raw/*132.37*/("""
-                """),format.raw/*133.17*/("""let table = document.getElementById("research_history");
+            function addPublicationFrontend() """),format.raw/*110.47*/("""{"""),format.raw/*110.48*/("""
+                """),format.raw/*111.17*/("""let table = document.getElementById("research_history");
                 let row = table.insertRow();
                 let title = row.insertCell(0);
-                let mediaType = row.insertCell(1);
+                let media_type = row.insertCell(1);
+                let date = row.insertCell(2);
+                let link = row.insertCell(3);
+                title.innerHTML = document.getElementById('title').value;
+                media_type.innerHTML = document.getElementById('media_type').value;
+                date.innerHTML = document.getElementById('date').value;
+                link.innerHTML = "<a href=document.getElementById('link').value>Link</a>"
+            """),format.raw/*121.13*/("""}"""),format.raw/*121.14*/("""
+        """),format.raw/*122.9*/("""</script>
+
+        <script>
+            function testAddResearch() """),format.raw/*125.40*/("""{"""),format.raw/*125.41*/("""
+                """),format.raw/*126.17*/("""let table = document.getElementById("research_history");
+                let row = table.insertRow();
+                let title = row.insertCell(0);
+                let media_type = row.insertCell(1);
                 let date = row.insertCell(2);
                 let link = row.insertCell(3);
                 title.innerHTML = "Test Title";
-                mediaType.innerHTML = "Article";
+                media_type.innerHTML = "Article";
                 date.innerHTML = "01-01-2020";
                 link.innerHTML = "<a href=google.com>Link</a>"
-            """),format.raw/*143.13*/("""}"""),format.raw/*143.14*/("""
-        """),format.raw/*144.9*/("""</script>
+            """),format.raw/*136.13*/("""}"""),format.raw/*136.14*/("""
+        """),format.raw/*137.9*/("""</script>
 
-        <script>
+
+
+        """),format.raw/*141.33*/("""
+        """),format.raw/*142.9*/("""<script>
                 let modalBtn = document.getElementById("modal-btn")
                 let modal = document.querySelector(".modal")
                 let closeBtn = document.querySelector(".close-btn")
-                modalBtn.onclick = function()"""),format.raw/*150.46*/("""{"""),format.raw/*150.47*/("""
-                    """),format.raw/*151.21*/("""modal.style.display = "block"
-                """),format.raw/*152.17*/("""}"""),format.raw/*152.18*/("""
-                """),format.raw/*153.17*/("""closeBtn.onclick = function()"""),format.raw/*153.46*/("""{"""),format.raw/*153.47*/("""
-                    """),format.raw/*154.21*/("""modal.style.display = "none"
-                """),format.raw/*155.17*/("""}"""),format.raw/*155.18*/("""
-                """),format.raw/*156.17*/("""// window.onclick = function(e)"""),format.raw/*156.48*/("""{"""),format.raw/*156.49*/("""
-                """),format.raw/*157.17*/("""//     if(e.target === modal)"""),format.raw/*157.46*/("""{"""),format.raw/*157.47*/("""
-                """),format.raw/*158.17*/("""//         modal.style.display = "none"
-                //     """),format.raw/*159.24*/("""}"""),format.raw/*159.25*/("""
-                """),format.raw/*160.17*/("""// """),format.raw/*160.20*/("""}"""),format.raw/*160.21*/("""
-        """),format.raw/*161.9*/("""</script>
+                modalBtn.onclick = function()"""),format.raw/*146.46*/("""{"""),format.raw/*146.47*/("""
+                    """),format.raw/*147.21*/("""modal.style.display = "block"
+                """),format.raw/*148.17*/("""}"""),format.raw/*148.18*/("""
+                """),format.raw/*149.17*/("""closeBtn.onclick = function()"""),format.raw/*149.46*/("""{"""),format.raw/*149.47*/("""
+                    """),format.raw/*150.21*/("""modal.style.display = "none"
+                """),format.raw/*151.17*/("""}"""),format.raw/*151.18*/("""
+                """),format.raw/*152.17*/("""// window.onclick = function(e)"""),format.raw/*152.48*/("""{"""),format.raw/*152.49*/("""
+                """),format.raw/*153.17*/("""//     if(e.target == modal)"""),format.raw/*153.45*/("""{"""),format.raw/*153.46*/("""
+                """),format.raw/*154.17*/("""//         modal.style.display = "none"
+                //     """),format.raw/*155.24*/("""}"""),format.raw/*155.25*/("""
+                """),format.raw/*156.17*/("""// """),format.raw/*156.20*/("""}"""),format.raw/*156.21*/("""
+        """),format.raw/*157.9*/("""</script>
 
 
 
-"""),format.raw/*165.21*/("""
-"""),format.raw/*166.73*/("""
-"""),format.raw/*167.72*/("""
-"""),format.raw/*168.68*/("""
-"""),format.raw/*169.43*/("""
-"""),format.raw/*170.51*/("""
-"""),format.raw/*171.18*/("""
-"""),format.raw/*172.44*/("""
-"""),format.raw/*173.50*/("""
-"""),format.raw/*174.18*/("""
-"""),format.raw/*175.22*/("""
-
-
-
-        """),format.raw/*186.11*/("""
-
-    """),format.raw/*188.5*/("""</body>
+    </body>
 </html>"""))
       }
     }
@@ -226,11 +206,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2022-04-07T14:22:56.863
+                  DATE: 2022-04-30T14:35:59.846
                   SOURCE: /home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/Frontend/app/views/myprofile.scala.html
-                  HASH: 89a82f04d6f6b8b3fffe24d1eed887fe430302c3
-                  MATRIX: 987->1|1183->104|1210->105|2427->1396|2459->1401|2965->1880|2996->1890|3126->1993|3156->2002|3361->2180|3392->2190|3441->2211|3638->2381|3662->2384|3711->2405|3787->2486|3816->2524|3845->2567|3874->2596|3903->2629|3932->2663|3961->2693|3990->2720|4019->2743|4048->2801|4090->2815|4242->2940|4268->2945|4324->2974|4350->2979|4517->3119|4548->3129|5139->3757|5168->3813|5197->3866|5227->3966|5256->3997|5306->4019|6759->5443|6789->5444|6835->5461|7375->5972|7405->5973|7442->5982|7741->6252|7771->6253|7821->6274|7896->6320|7926->6321|7972->6338|8030->6367|8060->6368|8110->6389|8184->6434|8214->6435|8260->6452|8320->6483|8350->6484|8396->6501|8454->6530|8484->6531|8530->6548|8622->6611|8652->6612|8698->6629|8730->6632|8760->6633|8797->6642|8839->6675|8869->6748|8899->6820|8929->6888|8959->6931|8989->6982|9019->7000|9049->7044|9079->7094|9109->7112|9139->7134|9180->7378|9214->7384
-                  LINES: 28->1|33->2|34->3|49->18|50->19|68->37|68->37|71->40|71->40|77->46|77->46|78->47|84->53|84->53|85->54|89->58|90->59|91->60|92->61|93->62|94->63|95->64|96->65|97->66|98->67|100->69|103->72|103->72|104->73|104->73|110->79|110->79|124->93|125->94|126->95|127->96|128->97|130->99|163->132|163->132|164->133|174->143|174->143|175->144|181->150|181->150|182->151|183->152|183->152|184->153|184->153|184->153|185->154|186->155|186->155|187->156|187->156|187->156|188->157|188->157|188->157|189->158|190->159|190->159|191->160|191->160|191->160|192->161|196->165|197->166|198->167|199->168|200->169|201->170|202->171|203->172|204->173|205->174|206->175|210->186|212->188
+                  HASH: de81415635147772df6cfdbe37e7e92b456c2d48
+                  MATRIX: 987->1|1183->104|1210->105|2427->1396|2459->1401|2890->1805|2921->1815|3051->1918|3081->1927|3286->2105|3317->2115|3366->2136|3563->2306|3587->2309|3636->2330|3848->2515|3874->2520|3930->2549|3956->2554|4125->2696|4156->2706|5115->3638|5130->3644|5190->3683|6501->4965|6531->4966|6577->4983|7231->5608|7261->5609|7298->5618|7394->5685|7424->5686|7470->5703|8012->6216|8042->6217|8079->6226|8129->6271|8166->6280|8446->6531|8476->6532|8526->6553|8601->6599|8631->6600|8677->6617|8735->6646|8765->6647|8815->6668|8889->6713|8919->6714|8965->6731|9025->6762|9055->6763|9101->6780|9158->6808|9188->6809|9234->6826|9326->6889|9356->6890|9402->6907|9434->6910|9464->6911|9501->6920
+                  LINES: 28->1|33->2|34->3|49->18|50->19|67->36|67->36|70->39|70->39|76->45|76->45|77->46|83->52|83->52|84->53|91->60|91->60|92->61|92->61|100->69|100->69|119->88|119->88|119->88|141->110|141->110|142->111|152->121|152->121|153->122|156->125|156->125|157->126|167->136|167->136|168->137|172->141|173->142|177->146|177->146|178->147|179->148|179->148|180->149|180->149|180->149|181->150|182->151|182->151|183->152|183->152|183->152|184->153|184->153|184->153|185->154|186->155|186->155|187->156|187->156|187->156|188->157
                   -- GENERATED --
               */
           

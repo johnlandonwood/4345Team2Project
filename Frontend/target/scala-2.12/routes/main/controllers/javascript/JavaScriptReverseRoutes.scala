@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/Frontend/conf/routes
-// @DATE:Wed Apr 06 18:13:33 CDT 2022
+// @DATE:Sat Apr 30 14:35:59 CDT 2022
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -18,6 +18,16 @@ package controllers.javascript {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
+  
+    // @LINE:19
+    def addPublicationHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.addPublicationHandler",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addPublication"})
+        }
+      """
+    )
   
     // @LINE:10
     def signup: JavaScriptReverseRoute = JavaScriptReverseRoute(
@@ -83,16 +93,8 @@ package controllers.javascript {
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """
-        function(path0,file1) {
-        
-          if (path0 == """ + implicitly[play.api.mvc.JavascriptLiteral[String]].to("/public") + """) {
-            return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "assets/" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("file", file1)})
-          }
-        
-          if (path0 == """ + implicitly[play.api.mvc.JavascriptLiteral[String]].to("/public/stylesheets/main.css") + """) {
-            return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "public/" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("file", file1)})
-          }
-        
+        function(file1) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "assets/" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("file", file1)})
         }
       """
     )

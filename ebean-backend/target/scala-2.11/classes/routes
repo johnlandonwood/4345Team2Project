@@ -12,3 +12,5 @@ POST     /login                      controllers.UserController.authenticate()
 # Add User  {"name":name, "password":password}
 POST    /signup                      controllers.UserController.registerNew()
 
+POST    /addPublication             controllers.PublicationController.addPublication()
+

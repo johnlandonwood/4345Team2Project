@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/Frontend/conf/routes
-// @DATE:Wed Apr 06 18:13:33 CDT 2022
+// @DATE:Sat Apr 30 14:35:59 CDT 2022
 
 package router
 
@@ -46,7 +46,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """register""", """controllers.HomeController.signupHandler()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """myprofile""", """controllers.HomeController.myProfile(first_name:String, last_name:String, occupation:String, bio:String, phone:String, email:String)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """public/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public/stylesheets/main.css", file:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addPublication""", """controllers.HomeController.addPublicationHandler()"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -163,18 +163,18 @@ class Routes(
   )
 
   // @LINE:19
-  private[this] lazy val controllers_Assets_at6_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("public/"), DynamicPart("file", """.+""",false)))
+  private[this] lazy val controllers_HomeController_addPublicationHandler6_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addPublication")))
   )
-  private[this] lazy val controllers_Assets_at6_invoker = createInvoker(
-    Assets_0.at(fakeValue[String], fakeValue[String]),
+  private[this] lazy val controllers_HomeController_addPublicationHandler6_invoker = createInvoker(
+    HomeController_1.addPublicationHandler(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.Assets",
-      "at",
-      Seq(classOf[String], classOf[String]),
+      "controllers.HomeController",
+      "addPublicationHandler",
+      Nil,
       "GET",
-      this.prefix + """public/""" + "$" + """file<.+>""",
+      this.prefix + """addPublication""",
       """""",
       Seq()
     )
@@ -220,9 +220,9 @@ class Routes(
       }
   
     // @LINE:19
-    case controllers_Assets_at6_route(params@_) =>
-      call(Param[String]("path", Right("/public/stylesheets/main.css")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at6_invoker.call(Assets_0.at(path, file))
+    case controllers_HomeController_addPublicationHandler6_route(params@_) =>
+      call { 
+        controllers_HomeController_addPublicationHandler6_invoker.call(HomeController_1.addPublicationHandler())
       }
   }
 }

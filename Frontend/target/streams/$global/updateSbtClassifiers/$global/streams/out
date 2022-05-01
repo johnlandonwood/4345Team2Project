@@ -467,6 +467,7 @@
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.7 {compile=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.7 {compile=[default(compile)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.7 {compile=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.7 {compile=[default(compile)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.7 {compile=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.7 {compile=[default(compile)]}
+[debug] no default cache defined: set to /home/landon/.ivy2/cache
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.7 {compile=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.7 {compile=[default(compile)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.7 {compile=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.7 {compile=[default(compile)]}
 [debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.7 {default=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.7 {default=[default(compile)]}
@@ -3349,9 +3350,9 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-interface;1.0!test-interface.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.17!apply-macro.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar
-[debug] :: resolution report :: resolve 322ms :: artifacts dl 8ms
+[debug] :: resolution report :: resolve 290ms :: artifacts dl 9ms
 [debug] 	report for client#client$sbt_2.10;1.0 default produced in /home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/Frontend/target/scala-2.12/resolution-cache/reports/client-client$sbt_2.10-default.xml
-[debug] 	resolve done (322ms resolve - 8ms download)
+[debug] 	resolve done (290ms resolve - 9ms download)
 [debug] Using inline dependencies specified in Scala.
 [debug] :: resolving dependencies :: client#client$sources_2.10;1.0
 [debug] 	confs: [default]
@@ -4749,6 +4750,6 @@
 [debug] 	[NOT REQUIRED] io.apigee.trireme#trireme-core;0.9.4!trireme-core.jar(src)
 [debug] 	[NOT REQUIRED] com.typesafe.play#play-exceptions;2.7.3!play-exceptions.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#persist;0.13.17!persist.jar(src)
-[debug] :: resolution report :: resolve 109ms :: artifacts dl 8ms
+[debug] :: resolution report :: resolve 92ms :: artifacts dl 8ms
 [debug] 	report for client#client$sources_2.10;1.0 default produced in /home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/Frontend/target/scala-2.12/resolution-cache/reports/client-client$sources_2.10-default.xml
-[debug] 	resolve done (109ms resolve - 8ms download)
+[debug] 	resolve done (92ms resolve - 8ms download)

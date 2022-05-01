@@ -22,7 +22,6 @@
 
         <nav class="navbar">
             <div class="container">
-                <button type="button" class="btn">Edit My Profile</button>
             </div>
         </nav>
 
@@ -55,17 +54,6 @@
                 </div>
             </div>
 
-@*            <div class="row">*@
-@*                <div class="col">*@
-@*                    <h5>Interests</h5>*@
-@*                    <ul>*@
-@*                        <li>*@
-@*                        </li>*@
-@*                    </ul>*@
-@*                </div>*@
-@*            </div>*@
-@*            <button class="btn">Add Interest</button>*@
-
             <div class="row">
                 <div class="col">
                     <h5><u>Contact Info</u></h5>
@@ -74,9 +62,11 @@
                 </div>
             </div>
 
+
+
             <div class="row">
                 <div class="col">
-                    <h5><u>@first_name's Research History/Publications</u></h5>
+                    <h5><u>@first_name's Publications</u></h5>
                     <table id="research_history">
                         <thead>
                             <tr>
@@ -88,61 +78,67 @@
                         </thead>
                     </table>
 
-                    <button id="addResearchButton" type="button" class="btn" onclick=addResearch()>Test add</button>
 
-@*                    <div id="addResearchModal" class="modal">*@
-@*                        <span class="exit">X</span>*@
-@*                        <p>Form will go here</p>*@
-@*                        <btn type="button" class="btn-danger" onclick=addResearch()>Close</btn>*@
-@*                    </div>*@
-
-                    <button id="modal-btn" type="button" class="btn"> Add Research History/Publication</button>
-
+                    <button id="addResearchButton" type="button" class="btn" onclick=testAddResearch()>Test add</button>
+                    <button id="modal-btn" type="button" class="btn"> Add Publication</button>
                     <div class="modal">
                         <div class="modal-content" style="">
                             <span class="close-btn">&times;</span>
-                            <p>Enter the new research history/publication information:</p>
-                            <form id="addNewResearchForm">
+                            <p>Enter the new publication's information:</p>
+                            <form action="@routes.HomeController.addPublicationHandler()" method="GET" id="addNewResearchForm" >
                                 <div class="container">
                                     <label for="title">Title</label>
-                                    <input type="text" id="title" name="title" placeholder="test"/>
-                                    <label for="mediaType">Media Type</label>
-                                    <input type="text" id="mediaType" name="mediaType" placeholder="test"/>
+                                    <input type="text" id="title" name="title" placeholder="Enter title..."/>
+                                    <label for="media_type">Media Type</label>
+                                    <input type="text" id="media_type" name="media_type" placeholder="Enter the type of media (article, video, etc.)"/>
                                     <label for="date">Date Published</label>
-                                    <input type="date" id="date" name="date" placeholder="test"/>
+                                    <input type="date" id="date" name="date" placeholder="Date published..."/>
                                     <label for="link">Link to content</label>
-                                    <input type="text" id="link" name="link" placeholder="test"/>
+                                    <input type="text" id="link" name="link" placeholder="Link to content..."/>
+                                    <input type="submit" value="Submit" id="submit-form-btn" class="btn" onclick="addPublicationFrontend()">
                                 </div>
-
                             </form>
-
                         </div>
                     </div>
-
-
-
-
-
                 </div>
             </div>
 
         </div>
 
+
         <script>
-            function addResearch() {
+            function addPublicationFrontend() {
                 let table = document.getElementById("research_history");
                 let row = table.insertRow();
                 let title = row.insertCell(0);
-                let mediaType = row.insertCell(1);
+                let media_type = row.insertCell(1);
+                let date = row.insertCell(2);
+                let link = row.insertCell(3);
+                title.innerHTML = document.getElementById('title').value;
+                media_type.innerHTML = document.getElementById('media_type').value;
+                date.innerHTML = document.getElementById('date').value;
+                link.innerHTML = "<a href=document.getElementById('link').value>Link</a>"
+            }
+        </script>
+
+        <script>
+            function testAddResearch() {
+                let table = document.getElementById("research_history");
+                let row = table.insertRow();
+                let title = row.insertCell(0);
+                let media_type = row.insertCell(1);
                 let date = row.insertCell(2);
                 let link = row.insertCell(3);
                 title.innerHTML = "Test Title";
-                mediaType.innerHTML = "Article";
+                media_type.innerHTML = "Article";
                 date.innerHTML = "01-01-2020";
                 link.innerHTML = "<a href=google.com>Link</a>"
             }
         </script>
 
+
+
+        @*Modal display script*@
         <script>
                 let modalBtn = document.getElementById("modal-btn")
                 let modal = document.querySelector(".modal")
@@ -154,36 +150,13 @@
                     modal.style.display = "none"
                 }
                 // window.onclick = function(e){
-                //     if(e.target === modal){
+                //     if(e.target == modal){
                 //         modal.style.display = "none"
                 //     }
                 // }
         </script>
 
 
-
-@*        <script>*@
-@*            let modal = document.getElementById("addResearchModal");*@
-@*            let btn = document.getElementById("addResearchButton");*@
-@*            let span = document.getElementsByClassName("exit");*@
-@*            btn.onclick = function() {*@
-@*                modal.style.display = "block";*@
-@*            }*@
-@*            span.onclick = function() {*@
-@*                modal.style.display = "none";*@
-@*            }*@
-@*        </script>*@
-
-
-
-        @*        Future additions:
-        - credentials section
-        - publications/research history section
-        - cleaner UI
-        - manage privacy settings
-        - apply for verification
-        - Profile dashboard
-        *@
 
     </body>
 </html>

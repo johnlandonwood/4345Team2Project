@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/landon/classes/CS4345/Lab-2-Ebean/Lab-2-Ebean/Frontend/conf/routes
-// @DATE:Wed Apr 06 18:13:33 CDT 2022
+// @DATE:Sat Apr 30 14:35:59 CDT 2022
 
 import play.api.mvc.Call
 
@@ -17,6 +17,12 @@ package controllers {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
+  
+    // @LINE:19
+    def addPublicationHandler(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "addPublication")
+    }
   
     // @LINE:10
     def signup(): Call = {
@@ -58,22 +64,9 @@ package controllers {
 
   
     // @LINE:15
-    def at(path:String, file:String): Call = {
-    
-      (path: @unchecked, file: @unchecked) match {
-      
-        // @LINE:15
-        case (path, file) if path == "/public" =>
-          implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
-          Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))
-      
-        // @LINE:19
-        case (path, file) if path == "/public/stylesheets/main.css" =>
-          implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public/stylesheets/main.css"))); _rrc
-          Call("GET", _prefix + { _defaultPrefix } + "public/" + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))
-      
-      }
-    
+    def at(file:String): Call = {
+      implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
+      Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))
     }
   
   }
