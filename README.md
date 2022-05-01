@@ -23,7 +23,7 @@ Each team in our class selected a function that they wanted to work towards impl
 **Download/Installation Instructions** 
 
 - First, make sure that you have the Play framework installed properly. If you are using IntelliJ Idea, download the SBT plugin at https://plugins.jetbrains.com/plugin/5007-sbt/versions and install the plugin from disk
-- Install the `.zip` from this repository.
+- Install the `.zip` from this repository (https://github.com/johnlandonwood/4345Team2Project).
 - Extract the contents to your chosen location.
 - Open the frontend and backend projects in separate windows. To do so, find the `build.sbt` file and open it. IntelliJ should prompt you to “open as project;” choose that option for both frontend and backend.
 - Start both frontend and backend by clicking the green “Run” icon in the top right.
