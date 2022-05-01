@@ -1,4 +1,4 @@
-# 4345Team2Project
-Spring 2022 semeseter project repository for team 2.
+# 4345 Team 2 Project - Scientist Social Network Profile Page
+Spring 2022 semester project repository for Team 2 - Maria Harrison, Amayrani Luna, Blake Miller, Landon Wood. 
 
-Most of our work so far has been on the Profile page at the route /myprofile. You can change the route parameters to see the changes updated on the page.
+**Introduction**
